@@ -1,0 +1,7 @@
+image_manager
+mainfile
+output_images/
+output/
+*.dSYM/
+.DS_Store
+*_copy*.jpg
