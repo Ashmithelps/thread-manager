@@ -19,8 +19,8 @@ A C++17 multithreaded image processing tool that converts color images to graysc
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/thread-manager-main.git
-cd thread-manager-main
+git clone https://github.com/Ashmithelps/thread-manager.git
+cd thread-manager
 ```
 
 ### 2. Add your images
@@ -58,7 +58,7 @@ Output images are saved to `output_images/` automatically.
 
 | Before | After |
 |--------|-------|
-| ![Color](input_images/elisabeth-arnold--E2fDQ3wPME-unsplash_copy2.jpg) | ![Grayscale](output_images/elisabeth-arnold--E2fDQ3wPME-unsplash_copy2.jpg) |
+| ![Color](assets/demo_before.jpg) | ![Grayscale](assets/demo_after.jpg) |
 
 ## Benchmark Results
 
@@ -97,3 +97,7 @@ Main Thread
 - **Language:** C++17
 - **Image I/O:** `stb_image` / `stb_image_write` (header-only, no external dependencies)
 - **Concurrency:** `<thread>`, `<mutex>`, `<condition_variable>`, `<functional>`
+
+## Third-Party Code
+
+`stb_image.h` (v2.30) and `stb_image_write.h` (v1.16) are vendored, unmodified, from [nothings/stb](https://github.com/nothings/stb) by Sean Barrett. They are dual-licensed under the MIT License or public domain (Unlicense), at your choice; the full license text is at the end of each header.
