@@ -23,36 +23,21 @@ git clone https://github.com/Ashmithelps/thread-manager.git
 cd thread-manager
 ```
 
-### 2. Add your images
-
-Place any `.jpg`, `.png`, or `.bmp` images inside the `input_images/` folder.
-
-### 3. Compile
+### 2. Compile
 
 ```bash
-clang++ -std=c++17 -O2 -o image_manager mainfile.cpp
+clang++ -std=c++17 -O2 -Wall -Wextra -pthread -Iinclude -isystem third_party/stb \
+  src/pipeline.cpp src/benchmark.cpp apps/cli/main.cpp -o tm-cli
 ```
 
-### 4. Run
+### 3. Run
 
 ```bash
-./image_manager <num_threads>
+./tm-cli --input input_images/elisabeth-arnold-oPmIQeKYeqc-unsplash.jpg \
+  --threads 1,2,4,8 --tile 32 --blur 4 --runs 5 --out result.jpg --json result.json
 ```
 
-**Examples:**
-
-```bash
-# Single-threaded
-./image_manager 1
-
-# 8 threads (recommended for modern hardware)
-./image_manager 8
-
-# Use all available cores
-./image_manager $(sysctl -n hw.logicalcpu)
-```
-
-Output images are saved to `output_images/` automatically.
+Run `./tm-cli --help` for all options. The image is converted to grayscale, box-blurred, and benchmarked sequentially and at each thread count. `--out` writes the processed JPEG; `--json` writes the timings plus a per-task trace (worker, phase, tile, start/end in microseconds).
 
 ## Demo
 

@@ -5,3 +5,4 @@ output/
 *.dSYM/
 .DS_Store
 *_copy*.jpg
+tm-cli
